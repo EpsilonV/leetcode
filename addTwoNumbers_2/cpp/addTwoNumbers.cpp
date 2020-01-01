@@ -21,19 +21,19 @@ struct ListNode {
 //从头遍历l1和l2 并增加一个进位的变量
 ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
     ListNode *head = NULL, *prev = NULL;
-    int curry = 0;
+    int carry = 0;
     while (l1 || l2) {
         int v1 = l1 ? l1->val : 0;
         int v2 = l2 ? l2->val : 0;
         int value = v1 + v2 + carry;
         ListNode *node = new ListNode(value % 10);
-        curry = value / 10;
+        carry = value / 10;
         if (!head) head = node;
         if (prev)
             prev->next = node;
         prev = node;
-        l1 = l1 : l1->next : NULL;
-        l2 = l2 : l2->next : NULL;
+        l1 = l1 ? l1->next : NULL;
+        l2 = l2 ? l2->next : NULL;
     }
 
     if (carry) {
